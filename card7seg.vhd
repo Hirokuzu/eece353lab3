@@ -12,6 +12,8 @@ END;
 ARCHITECTURE behavioral OF card7seg IS
 BEGIN
 
+process(card)
+begin
     case(card) is
         when "0000" => seg7 <= "1111111";
         when "0001" => seg7 <= "1111001";
@@ -28,7 +30,8 @@ BEGIN
         when "1100" => seg7 <= "0011000";
         when "1101" => seg7 <= "0001001";
         when others => seg7 <= "0000110"; -- error with a big E for 14,15,16
-    end case
+    end case;
+end process;
    -- your code goes here.  Hint: this is a simple combinational block
    -- like you did in Lab 1.  If you find this difficult, you are on the
    -- wrong track.
